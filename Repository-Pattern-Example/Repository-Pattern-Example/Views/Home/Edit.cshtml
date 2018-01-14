@@ -1,0 +1,29 @@
+﻿@model Repository_Pattern_Example.Models.Student
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Öğrenci Düzenleme Sayfası</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <div class="col-md-5">
+                <label class="col-md-5">Kullanıcı Adı Giriniz: </label><br />
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @required = "required", @maxlength = "20" } })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Değişiklikleri Kaydet" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+

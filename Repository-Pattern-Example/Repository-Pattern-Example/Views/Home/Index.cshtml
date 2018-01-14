@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Repository_Pattern_Example.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+@Html.ActionLink("Yeni Öğrenci Ekle", "Create")
+ <br />
+    <div class="x_content">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Ad Soyad</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Id
+                         </td>
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                            @Html.ActionLink("Düzenle", "Edit", new { id=item.Id }) |
+                            @Html.ActionLink("Detay", "Details", new { id=item.Id }) |
+                            @Html.ActionLink("Sil", "Delete", new { id=item.Id }) 
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
